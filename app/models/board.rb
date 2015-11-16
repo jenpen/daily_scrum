@@ -1,3 +1,3 @@
 class Board < ActiveRecord::Base
-  has_many: notecards
+  has_many :notecards
 end
