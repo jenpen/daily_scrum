@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task: MyString
+  date: 2015-11-16
+  status: MyString
+  accomplished: MyString
+  to_do: MyString
+  roadblock: MyString
+  user_id: 
+
+two:
+  task: MyString
+  date: 2015-11-16
+  status: MyString
+  accomplished: MyString
+  to_do: MyString
+  roadblock: MyString
+  user_id: 
