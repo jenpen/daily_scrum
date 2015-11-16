@@ -12,6 +12,22 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
+<!-- Navigation -->
+
+<header>
+  <h1><%= link_to "Daily Scrum", root_path %></h1>
+  <nav>
+    <% if current_user %>
+      <%= link_to "Logout", destroy_user_session_path, method: delete %>
+    <% else %>
+    <!-- WANT TO INCLUDE CURRENT_USER.EMAIL -->
+      <%= "Welcome, #{current_user}" %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Sign In", new_user_session_path %>
+    <% end %>
+  </nav>
+</header>
+
 <%= yield %>
 
 </body>

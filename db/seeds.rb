@@ -12,20 +12,21 @@ Notecard.destroy_all
 Comment.destroy_all
 
 users = User.create! ([
-  {email: 'one@one.com', password: "oneoneone"},
-  {email: 'two@two.com', password: "twotwotwo"}
+  {email: 'one@one.com', password: 'oneoneone'},
+  {email: 'two@two.com', password: 'twotwotwo'}
   ])
 
 boards = Board.create! ([
-  {title: 'Update the Login Page'},
-  {title: 'Add color-coded profiles to Galaxy Game'}
+  {title: 'create a daily scrum application', status: 'complete'},
+  {title: 'Update the Login Page', status: 'in progress'},
+  {title: 'Add color-coded profiles to Galaxy Game', status: 'in progress'}
 ])
 
 notecards = Notecard.create! ([
 
   # Notecard 0
   {task: 'Update views',
-  date: "10/18/16",
+  date: '10/18/16',
   status: 'done',
   accomplished: 'Updated the home view with revisions to functionality allowing users to login.',
   to_do: 'Update css to match look and feel of page to design comp',
@@ -35,7 +36,7 @@ notecards = Notecard.create! ([
 
   # Notecard 1
   {task: 'Resolve tickets in JIRA',
-  date: "10/18/16",
+  date: '10/18/16',
   status: 'done',
   accomplished: 'Reviewed and resolved 14 tickets in JIRA',
   to_do: 'none',
@@ -45,7 +46,7 @@ notecards = Notecard.create! ([
 
   # Notecard 2
   {task: 'Set up dev environment and pull assets for avatars',
-  date: "10/18/16",
+  date: '10/18/16',
   status: 'in progress',
   accomplished: 'Set up dev environment',
   to_do: 'Pull assets from PSD',
@@ -55,7 +56,7 @@ notecards = Notecard.create! ([
 
   # Notecard 3
   {task: 'Create Google Analytics tags for implementation on site',
-  date: "10/18/16",
+  date: '10/18/16',
   status: 'in progress',
   accomplished: 'Identified best method for implementing tags on mapbox data',
   to_do: 'Insert tags into code',
@@ -65,7 +66,7 @@ notecards = Notecard.create! ([
 
   # Notecard 4
   {task: 'Do fun things with game logic',
-  date: "10/18/16",
+  date: '10/18/16',
   status: 'in progress',
   accomplished: 'Made one fun thing happen with game logic',
   to_do: 'Update with two more fun things',
@@ -75,5 +76,5 @@ notecards = Notecard.create! ([
   ])
 
   comments = Comment.create!([
-    {body: "Production Designer is resourced to assist with revising the layers", user: users[1], notecard: notecards[2]}
+    {body: 'Production Designer is resourced to assist with revising the layers', user: users[1], notecard: notecards[2]}
     ])
