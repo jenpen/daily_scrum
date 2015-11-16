@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  sprint_goal: MyString
-  user_id: 
+  title: MyString
 
 two:
-  sprint_goal: MyString
-  user_id: 
+  title: MyString

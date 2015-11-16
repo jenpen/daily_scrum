@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Board.destroy_all
+User.destroy_all
+Notecard.destroy_all
+Comment.destroy_all
+
+boards = Board.create ([
+  {title: "Update Username", user: users[0]},
+  {title: ""}
+
+users = User.create ([
+  {email: "one@one.com", password: oneoneone},
+  {email: "two@two.com", password: twotwotwo}
+  ])

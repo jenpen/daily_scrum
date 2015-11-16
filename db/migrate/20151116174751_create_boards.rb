@@ -1,10 +1,9 @@
 class CreateBoards < ActiveRecord::Migration
   def change
     create_table :boards do |t|
-      t.string :sprint_goal
-      t.references :user, index: true, foreign_key: true
+      t.string :title
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

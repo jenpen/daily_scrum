@@ -8,6 +8,7 @@ one:
   to_do: MyString
   roadblock: MyString
   user_id: 
+  board_id: 
 
 two:
   task: MyString
@@ -17,3 +18,4 @@ two:
   to_do: MyString
   roadblock: MyString
   user_id: 
+  board_id: 

@@ -8,8 +8,9 @@ class CreateNotecards < ActiveRecord::Migration
       t.string :to_do
       t.string :roadblock
       t.references :user, index: true, foreign_key: true
+      t.references :board, index: true, foreign_key: true
 
-      t.timestamps :created_at, :updated_at
+      t.timestamps null: false
     end
   end
 end
