@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'boards#index'
-  resources :boards do
-    resources :notecards
+  resources :boards
+  resources :notecards do
+    resources :comments
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

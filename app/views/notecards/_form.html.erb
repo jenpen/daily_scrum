@@ -1,8 +1,22 @@
-<!-- Form for notecards -->
-
-<!-- Task -->
-<!-- Notecard dates -->
-<!-- Task Status -->
-<!-- What did you accomplish yesterday? -->
-<!-- What are you doing today? -->
-<!-- What are the roadblocks? -->
+<%= form_for [@board, @notecard] do |f| %>
+  <!-- Task -->
+    <%= f.label :task %>
+    <%= f.text_field :task %>
+  <!-- Notecard dates -->
+    <%= f.label :date, "Date (Enter as YYYY-MM-DD)" %>
+    <%= f.text_field :date %>
+  <!-- Task Status -->
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  <!-- What did you accomplish yesterday? -->
+    <%= f.label :accomplished, "What did you accomplish yesterday?" %>
+    <%= f.text_field :accomplished %>
+  <!-- What are you doing today? -->
+    <%= f.label :to_do, "What are you doing today?" %>
+    <%= f.text_field :to_do %>
+  <!-- What are the roadblocks? -->
+    <%= f.label :roadblock, "What are the roadblocks?" %>
+    <%= f.text_field :roadblock %>
+  <!-- Submit -->
+    <%= f.submit %>
+<% end %>
