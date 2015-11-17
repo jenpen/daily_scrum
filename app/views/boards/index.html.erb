@@ -1,13 +1,25 @@
-<h1>Hello</h1>
+<!-- Current User -->
+  <!-- View all boards -->
+  <!-- View link to all notecards -->
+  <!-- Views user notecards -->
 
-<!-- If not current user -->
+<!-- Not current user -->
+  <!-- Sign Up -->
+  <!-- Sign In -->
+  <!-- View all boards -->
 
-  <!-- Login -->
-  <!-- Sign up -->
-  <!-- View all notecards -->
+<% if current_user %>
+  <!-- link_to "View My Notecards", link to view all current user notecards  -->
+  <!-- link_to "View all Notecards", link to view all notecards -->
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Sign In", new_user_session_path %>
+<% end %>
 
-<!-- <% else %> -->
-
-  <!-- Logout -->
-  <!-- View my notecards -->
-  <!-- View all notecards -->
+<h1>All Boards</h1>
+  <% @boards.each do |board| %>
+    <ul>
+    <li><%= link_to board.title.capitalize, board_path(board) %></li>
+    <li><%= board.status.capitalize %></li>
+  </ul>
+  <% end %>

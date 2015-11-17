@@ -18,7 +18,7 @@
   <h1><%= link_to "Daily Scrum", root_path %></h1>
   <nav>
     <% if current_user %>
-      <%= link_to "Logout", destroy_user_session_path, method: delete %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     <% else %>
     <!-- WANT TO INCLUDE CURRENT_USER.EMAIL -->
       <%= "Welcome, #{current_user}" %>
