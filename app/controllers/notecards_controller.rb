@@ -1,17 +1,17 @@
 class NotecardsController < ApplicationController
+  before_action :set_board, except: [:all, :new, :edit, :update]
+  # before_action :set_notecard, only: [:edit, :update]
+
 
   def all
     @notecards = Notecard.all
-    @board = @notecards.find_by([board_id])
   end
 
   def index
-    @board = Board.find(params[:board_id])
     @notecards = @board.notecards.all
   end
 
   def show
-    @board = Board.find(params[:board_id])
     @notecard = @board.notecards.find(params[:id])
   end
 
@@ -20,31 +20,40 @@ class NotecardsController < ApplicationController
   end
 
   def create
-    @board = Board.find(params[:board_id])
     @notecard = @board.notecards.create!(notecard_params.merge(user:current_user))
     redirect_to @board
   end
 
   def edit
-    @notecard = current_user.notecards.find(params[:id])
+    @notecard = Notecard.find(params[:id])
+    # @board = @notecard.board
   end
 
   def update
-    @board = Board.find(params[:board_id])
-    @notecard = current_user.notecards.update(@board, notecard_params)
-    redirect_to @board
+    @notecard = Notecard.find(params[:id])
+    # @board = @notecard.board
+    if @notecard.update(notecard_params)
+      flash[:notice] = "#{@notecard.title} was successfully updated!"
+      redirect_to @notecard
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @board = Board.find(params[:board_id])
     @notecard = current_user.notecards.find(params[:id])
     @notecard.destroy
     redirect_to @board
   end
 
-# Strong Params
 private
+
+  # def set_notecard
+  #   @notecard = Notecard.find(params[:id])
+  # end
+
   def set_board
+    @board = Board.find(params[:board_id])
   end
 
   def notecard_params

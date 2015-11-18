@@ -31,7 +31,6 @@ class BoardsController < ApplicationController
     redirect_to boards_path
   end
 
-#Stong Params
 private
   def set_board
     @board = Board.find(params[:id])
