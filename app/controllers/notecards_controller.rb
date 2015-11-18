@@ -20,6 +20,7 @@ class NotecardsController < ApplicationController
   end
 
   def create
+    Rails.logger.debug("Id: #{params[:id]}")
     @notecard = @board.notecards.create!(notecard_params.merge(user:current_user))
     redirect_to board_notecards_path
   end
