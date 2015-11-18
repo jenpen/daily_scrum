@@ -1,7 +1,5 @@
 class NotecardsController < ApplicationController
-  before_action :set_board, except: [:all, :new, :edit, :update]
-  # before_action :set_notecard, only: [:edit, :update]
-
+  before_action :set_board, except: [:all, :destroy]
 
   def all
     @notecards = Notecard.all
@@ -35,7 +33,7 @@ class NotecardsController < ApplicationController
     @notecard = Notecard.find(params[:id])
     # @board = @notecard.board
     @notecard.update(notecard_params)
-    redirect_to board_notecard_path(@notecard)
+    redirect_to board_notecards_path
   end
 
   def destroy
@@ -45,11 +43,6 @@ class NotecardsController < ApplicationController
   end
 
 private
-
-  # def set_notecard
-  #   @notecard = Notecard.find(params[:id])
-  # end
-
   def set_board
     @board = Board.find(params[:board_id])
   end

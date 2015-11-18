@@ -1,12 +1,12 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:edit, :update, :destroy]
+  before_action :set_board, except: [:index, :new, :create]
 
   def index
     @boards = Board.all
   end
 
   def show
-    render 'notecards/index'
+    redirect_to 'notecards/index'
   end
 
   def new
@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.create!(board_params)
-    redirect_to @board
+    redirect_to boards_path
   end
 
   def edit
@@ -23,7 +23,7 @@ class BoardsController < ApplicationController
 
   def update
     @board.update!(board_params)
-    redirect_to @board
+    redirect_to boards_path
   end
 
   def destroy

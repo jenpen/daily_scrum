@@ -2,7 +2,7 @@
 <h2><%= @board.status %></h2>
 
 <%= link_to 'All Boards', boards_path %>
-<!-- <%#= link_to 'Add New Card', new_board_notecard(@notecard) %> -->
+<%= link_to 'Add New Card', new_board_notecard_path(@board, @notecard) %>
 
 <!-- Show Notecards For This Board -->
 <% @board.notecards.each do |notecard| %>
@@ -26,8 +26,8 @@
 </ul>
 <!-- Notecard Owner Can Edit Or Delete Card -->
   <% if current_user && notecard.user == current_user %>
-    <%= link_to 'Edit Notecard', edit_board_notecard_path(@board, notecard) %>
-    <%= link_to 'Delete', [@board, notecard], method: :delete, data: { confirm: 'Are you sure?' } %>
+    <button><%= link_to 'Edit Notecard', edit_board_notecard_path(@board, notecard) %></button>
+    <button><%= link_to 'Delete', [@board, notecard], method: :delete, data: { confirm: 'Are you sure?' } %></button>
   <% end %>
 <% end %>
 
