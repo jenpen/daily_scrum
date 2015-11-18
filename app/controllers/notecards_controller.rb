@@ -1,15 +1,16 @@
 class NotecardsController < ApplicationController
-  before_action :set_board, except: [:all]
 
   def all
     @notecards = Notecard.all
   end
 
   def index
+    @board = Board.find(params[:board_id])
     @notecards = @board.notecards.all
   end
 
   def show
+    @board = Board.find(params[:board_id])
     @notecard = @board.notecards.find(params[:id])
   end
 
@@ -18,6 +19,7 @@ class NotecardsController < ApplicationController
   end
 
   def create
+    @board = Board.find(params[:board_id])
     @notecard = @board.notecards.create!(notecard_params.merge(user:current_user))
     redirect_to @board
   end
@@ -27,11 +29,13 @@ class NotecardsController < ApplicationController
   end
 
   def update
+    @board = Board.find(params[:board_id])
     @notecard = current_user.notecards.update(@board, notecard_params)
     redirect_to @board
   end
 
   def destroy
+    @board = Board.find(params[:board_id])
     @notecard = current_user.notecards.find(params[:id])
     @notecard.destroy
     redirect_to @board
@@ -40,7 +44,6 @@ class NotecardsController < ApplicationController
 # Strong Params
 private
   def set_board
-    @board = Board.find(params[:board_id])
   end
 
   def notecard_params

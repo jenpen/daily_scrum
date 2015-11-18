@@ -17,62 +17,62 @@ users = User.create! ([
   ])
 
 boards = Board.create! ([
-  {title: 'create a daily scrum application', status: 'complete'},
-  {title: 'Update the Login Page', status: 'in progress'},
-  {title: 'Add color-coded profiles to Galaxy Game', status: 'in progress'}
+  {title: 'Create a Daily Scrum Application', status: 'Complete'},
+  {title: 'Update the Login Page', status: 'In Progress'},
+  {title: 'Add Color-coded Profiles to Galaxy Game', status: 'In Progress'}
 ])
 
 notecards = Notecard.create! ([
 
   # Notecard 0
-  {task: 'Update views',
+  {task: 'Update Views',
   date: "2016-10-16",
-  status: 'done',
+  status: 'Complete',
   accomplished: 'Updated the home view with revisions to functionality allowing users to login.',
-  to_do: 'Update css to match look and feel of page to design comp',
-  roadblock: 'none',
+  to_do: 'Update CSS to match look and feel of page to design comp',
+  roadblock: 'None',
   user: users[0],
-  board: boards[0]},
+  board: boards[1]},
 
   # Notecard 1
   {task: 'Resolve tickets in JIRA',
   date: "2016-10-16",
-  status: 'done',
+  status: 'Complete',
   accomplished: 'Reviewed and resolved 14 tickets in JIRA',
-  to_do: 'none',
+  to_do: 'None',
   roadblock: 'Awaiting QA review of resolved tickets',
   user: users[1],
-  board: boards[0]},
+  board: boards[1]},
 
   # Notecard 2
   {task: 'Set up dev environment and pull assets for avatars',
   date: "2016-10-16",
-  status: 'in progress',
+  status: 'In Progress',
   accomplished: 'Set up dev environment',
   to_do: 'Pull assets from PSD',
   roadblock: 'Need some layers saved to web quality',
   user: users[0],
-  board: boards[1]},
+  board: boards[2]},
 
   # Notecard 3
   {task: 'Create Google Analytics tags for implementation on site',
   date: "2016-10-16",
-  status: 'in progress',
+  status: 'In Progress',
   accomplished: 'Identified best method for implementing tags on mapbox data',
   to_do: 'Insert tags into code',
-  roadblock: 'none',
+  roadblock: 'None',
   user: users[0],
-  board: boards[1]},
+  board: boards[2]},
 
   # Notecard 4
   {task: 'Do fun things with game logic',
   date: "2016-10-16",
-  status: 'in progress',
+  status: 'In Progress',
   accomplished: 'Made one fun thing happen with game logic',
   to_do: 'Update with two more fun things',
   roadblock: 'Have not identified second fun thing or third fun thing',
   user: users[1],
-  board: boards[1]}
+  board: boards[2]}
   ])
 
   comments = Comment.create!([

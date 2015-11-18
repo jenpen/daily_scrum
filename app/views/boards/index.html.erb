@@ -1,10 +1,10 @@
 <!-- Current User : Available Actions -->
 <% if current_user %>
-  <!-- link_to "View My Notecards", link to view all current user notecards  -->
-  <%= link_to "View all Notecards", notecards_path %>
+  <!-- link_to 'View My Notecards', link to view all current user notecards  -->
+  <%= link_to 'View all Notecards', notecards_path %>
 
-  <!-- View All Boards -->
-  <h1>All Boards <%= link_to "(+)", new_board_path %></h1>
+  <!-- View All Boards + Add New Board -->
+  <h1>All Boards <%= link_to '(+)', new_board_path %></h1>
     <% @boards.each do |board| %>
       <ul>
       <li><%= link_to board.title, board_path(board) %></li>
@@ -12,11 +12,8 @@
     </ul>
     <% end %>
 
-<!-- Not Current User : Avaiable Actions -->
+<!-- Not Current User : View Boards -->
 <% else %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  <%= link_to "Sign In", new_user_session_path %>
-
   <!-- View All Boards -->
   <h1>All Boards</h1>
     <% @boards.each do |board| %>

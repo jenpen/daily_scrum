@@ -4,11 +4,11 @@
   <ul>
     <li><%= link_to notecard.task, board_notecards_path(notecard) %></li>
     <li><%= notecard.date %></li>
-    <li><%= notecard.status.capitalize %></li>
-    <li><%= notecard.accomplished.capitalize %></li>
-    <li><%= notecard.to_do.capitalize %></li>
-    <li><%= notecard.roadblock.capitalize %></li>
+    <li><%= notecard.status %></li>
+    <li><%= notecard.accomplished %></li>
+    <li><%= notecard.to_do %></li>
+    <li><%= notecard.roadblock %></li>
   </ul>
 <% end %>
 
-<%= link_to "View All Boards", boards_path %>
+<%= link_to 'View All Boards', boards_path %>

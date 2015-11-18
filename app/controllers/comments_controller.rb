@@ -10,12 +10,11 @@ class CommentsController < ApplicationController
   end
 
 private
-def set_board
-  @notecard = Notecard.find(params[:id])
-end
+  def set_board
+    @notecard = Notecard.find(params[:id])
+  end
 
-def board_params
-  params.require(:comment).permit(:body)
-end
-
+  def board_params
+    params.require(:comment).permit(:body)
+  end
 end

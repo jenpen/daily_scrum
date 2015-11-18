@@ -1,26 +1,26 @@
-<!-- If current user = card owner -->
-  <!-- functionality to edit -->
-  <!-- funcitonality to delete -->
-
 <h1><%= @board.title %></h1>
 <h2><%= @board.status %></h2>
+<%= link_to "All Boards", boards_path %>
 
+<!-- Show Notecards For This Board -->
 <% @board.notecards.each do |notecard| %>
-  <ul>
-    <li><%= link_to notecard.task, board_notecard_path(@board, notecard) %></li>
-    <li><%= notecard.date %></li>
-    <li><%= notecard.status %></li>
-    <li><%= notecard.accomplished %></li>
-    <li><%= notecard.to_do %></li>
-    <li><%= notecard.roadblock %></li>
-  </ul>
+<ul>
+  <li><%= link_to notecard.task, board_notecards_path(notecard) %></li>
+  <li><%= notecard.date %></li>
+  <li><%= notecard.status %></li>
+  <li><%= notecard.accomplished %></li>
+  <li><%= notecard.to_do %></li>
+  <li><%= notecard.roadblock %></li>
+</ul>
+<!-- Notecard Owner Can Edit Or Delete Card -->
   <% if current_user && notecard.user == current_user %>
-    <%= link_to "Edit Notecard", edit_board_notecard_path(@board, notecard) %>
+    <%= link_to 'Edit Notecard', edit_board_notecard_path(@board, notecard) %>
     <%= link_to 'Delete', [@board, notecard], method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
 
+<!-- Any Current User Can Edit or Delete the Board if Logged In -->
 <% if current_user %>
-  <%= link_to "Edit Board", edit_board_path(@board) %>
+  <%= link_to 'Edit Board', edit_board_path(@board) %>
   <%= link_to 'Delete', @board, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
