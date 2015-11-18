@@ -5,18 +5,10 @@
 <!-- Show Notecards For This Board -->
 <% @board.notecards.each do |notecard| %>
 <ul>
-  <li>
-    <p>Task:</p>
-    <p><%= link_to notecard.task, board_notecards_path(notecard) %></p>
-  </li>
-  <li>
-    <p>Date:
-    <p><%= notecard.date %></p>
-  </li>
-  <li>
-    <p>Task Status:</p>
-    <p><%= notecard.status %></p>
-  </li>
+<!-- Clicking The Notecard Takes You To That Card -->
+  <li><h3><%= link_to notecard.task, board_notecard_path(@board, notecard) %></h3></li>
+  <li><p>Date: <%= notecard.date %></p></li>
+  <li><p>Task Status: <%= notecard.status %></p></li>
   <li>
     <p>What did you accomplish yesterday?</p>
     <p><%= notecard.accomplished %></p>

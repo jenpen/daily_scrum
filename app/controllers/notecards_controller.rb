@@ -48,6 +48,6 @@ private
   end
 
   def notecard_params
-    params.require(:notecard).permit(:task, :date, :status, :accomplished, :to_do, :roadblock)
+    params.require(:notecard).permit(:task, :date, :status, :accomplished, :to_do, :roadblock, :board_id, :user_id)
   end
 end

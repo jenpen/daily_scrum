@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back To Board', board_path(@board) %> |
+<%= link_to 'Back To Board', board_notecards_path(@board) %> |
 <%= link_to 'Delete This Board', @board, method: :delete, data: { confirm: 'Are you sure?' } %>

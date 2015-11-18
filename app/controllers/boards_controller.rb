@@ -1,11 +1,12 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :set_board, only: [:edit, :update, :destroy]
 
   def index
     @boards = Board.all
   end
 
   def show
+    render 'notecards/index'
   end
 
   def new
