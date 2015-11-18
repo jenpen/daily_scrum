@@ -1,0 +1,10 @@
+<%= form_for [@board] do |f| %>
+  <!-- Title -->
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  <!-- Board Status -->
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  <!-- Submit -->
+    <%= f.submit %>
+<% end %>

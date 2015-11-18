@@ -1,11 +1,11 @@
 class BoardsController < ApplicationController
+  before_action :set_board, only: [:show, :edit, :update, :destroy]
 
   def index
     @boards = Board.all
   end
 
   def show
-    @board = Board.find(params[:id])
   end
 
   def new
@@ -13,26 +13,29 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create!(board_params.merge(user:current_user))
+    @board = Board.create!(board_params)
     redirect_to @board
   end
 
   def edit
-    @board = Board.find(params[:id])
   end
 
   def update
-    @board = Board.update!(board_params.merge(user:current_user))
+    @board.update!(board_params)
     redirect_to @board
   end
 
   def destroy
-    @board = current_user.boards.find(params[:id]).destroy
+    @board.destroy
     redirect_to boards_path
   end
 
 #Stong Params
 private
+  def set_board
+    @board = Board.find(params[:id])
+  end
+
   def board_params
     params.require(:board).permit(:title, :status)
   end

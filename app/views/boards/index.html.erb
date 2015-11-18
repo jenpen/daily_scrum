@@ -1,25 +1,28 @@
-<!-- Current User -->
-  <!-- View all boards -->
-  <!-- View link to all notecards -->
-  <!-- Views user notecards -->
-
-<!-- Not current user -->
-  <!-- Sign Up -->
-  <!-- Sign In -->
-  <!-- View all boards -->
-
+<!-- Current User : Available Actions -->
 <% if current_user %>
   <!-- link_to "View My Notecards", link to view all current user notecards  -->
-  <!-- link_to "View all Notecards", link to view all notecards-->
+  <%= link_to "View all Notecards", notecards_path %>
+
+  <!-- View All Boards -->
+  <h1>All Boards <%= link_to "(+)", new_board_path %></h1>
+    <% @boards.each do |board| %>
+      <ul>
+      <li><%= link_to board.title, board_path(board) %></li>
+      <li><%= board.status %></li>
+    </ul>
+    <% end %>
+
+<!-- Not Current User : Avaiable Actions -->
 <% else %>
   <%= link_to "Sign Up", new_user_registration_path %>
   <%= link_to "Sign In", new_user_session_path %>
-<% end %>
 
-<h1>All Boards</h1>
-  <% @boards.each do |board| %>
-    <ul>
-    <li><%= link_to board.title.capitalize, board_path(board) %></li>
-    <li><%= board.status.capitalize %></li>
-  </ul>
-  <% end %>
+  <!-- View All Boards -->
+  <h1>All Boards</h1>
+    <% @boards.each do |board| %>
+      <ul>
+      <li><%= link_to board.title, board_path(board) %></li>
+      <li><%= board.status %></li>
+    </ul>
+    <% end %>
+<% end %>

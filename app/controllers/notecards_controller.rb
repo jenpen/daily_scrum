@@ -1,12 +1,16 @@
 class NotecardsController < ApplicationController
-  before_action :set_board
+  before_action :set_board, except: [:all]
+
+  def all
+    @notecards = Notecard.all
+  end
 
   def index
     @notecards = @board.notecards.all
   end
 
   def show
-    @notecard = @board.notecard.find(params[:id])
+    @notecard = @board.notecards.find(params[:id])
   end
 
   def new
@@ -19,13 +23,11 @@ class NotecardsController < ApplicationController
   end
 
   def edit
-    # @notecard = current_user.notecards.find(params[:id])
     @notecard = current_user.notecards.find(params[:id])
-
   end
 
   def update
-    @notecard = @board.notecards.update!(notecard_params.merge(user:current_user))
+    @notecard = current_user.notecards.update(@board, notecard_params)
     redirect_to @board
   end
 
@@ -44,5 +46,4 @@ private
   def notecard_params
     params.require(:notecard).permit(:task, :date, :status, :accomplished, :to_do, :roadblock)
   end
-
 end

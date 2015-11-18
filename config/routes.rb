@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'boards#index'
-  resources :boards
-  resources :notecards do
-    resources :comments
+
+  resources :boards do
+    resources :notecards do
+      resources :comments, only: [:create, :update, :destroy]
+    end
   end
+
+  get 'notecards', to: 'notecards#all'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
