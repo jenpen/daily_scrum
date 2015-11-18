@@ -1,6 +1,7 @@
 class NotecardsController < ApplicationController
 
   def all
+    @board = Board.find(params[:board_id])
     @notecards = Notecard.all
   end
 
