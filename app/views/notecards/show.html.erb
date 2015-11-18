@@ -1,15 +1,23 @@
-<%= link_to "Back to Board", board_notecards_path %>
-
+<%= link_to 'Back to Board', board_notecards_path %>
 <ul>
-  <li><%= @notecard.task %></li>
-  <li><%= @notecard.date %></li>
-  <li><%= @notecard.status %></li>
-  <li><%= @notecard.accomplished %></li>
-  <li><%= @notecard.to_do %></li>
-  <li><%= @notecard.roadblock %></li>
+  <li><h3><%=@notecard.task%></h3></li>
+  <li><p>Date: <%= @notecard.date %></p></li>
+  <li><p>Task Status: <%= @notecard.status %></p></li>
+  <li>
+    <p>What did you accomplish yesterday?</p>
+    <p><%= @notecard.accomplished %></p>
+  </li>
+  <li>
+    <p>What are you doing today?</p>
+    <p><%= @notecard.to_do %></p>
+  </li>
+  <li>
+    <p>What are the roadblocks (if any)?</p>
+    <p><%= @notecard.roadblock %></p>
+  </li>
 </ul>
 
 <% if current_user && @notecard.user == current_user %>
-  <%= link_to "Edit Notecard", edit_board_notecard_path(@notecard) %>
+  <%= link_to 'Edit Notecard', edit_board_notecard_path(@notecard) %>
   <%= link_to 'Delete', [@notecard], method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

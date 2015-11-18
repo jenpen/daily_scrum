@@ -21,10 +21,11 @@ class NotecardsController < ApplicationController
 
   def create
     @notecard = @board.notecards.create!(notecard_params.merge(user:current_user))
-    redirect_to @board
+    redirect_to board_notecards_path
   end
 
   def edit
+    Rails.logger.debug("Id: #{params[:id]}")
     @notecard = Notecard.find(params[:id])
     # @board = @notecard.board
   end
@@ -32,18 +33,14 @@ class NotecardsController < ApplicationController
   def update
     @notecard = Notecard.find(params[:id])
     # @board = @notecard.board
-    if @notecard.update(notecard_params)
-      flash[:notice] = "#{@notecard.title} was successfully updated!"
-      redirect_to @notecard
-    else
-      render :edit
-    end
+    @notecard.update(notecard_params)
+    redirect_to board_notecard_path(@notecard)
   end
 
   def destroy
     @notecard = current_user.notecards.find(params[:id])
     @notecard.destroy
-    redirect_to @board
+    redirect_to board_notecards_path
   end
 
 private
@@ -57,6 +54,6 @@ private
   end
 
   def notecard_params
-    params.require(:notecard).permit(:task, :date, :status, :accomplished, :to_do, :roadblock, :board_id, :user_id)
+    params.require(:notecard).permit(:task, :date, :status, :accomplished, :to_do, :roadblock, :user_id, :board_id)
   end
 end

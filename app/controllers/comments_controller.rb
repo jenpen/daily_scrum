@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
 
+  def new
+  end
+  
   def create
   end
 
@@ -10,9 +13,6 @@ class CommentsController < ApplicationController
   end
 
 private
-  def set_board
-    @notecard = Notecard.find(params[:id])
-  end
 
   def board_params
     params.require(:comment).permit(:body)

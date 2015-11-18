@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'boards#index'
 
   resources :boards do
-    resources :notecards do
-      resources :comments, only: [:create, :update, :destroy]
-    end
+    resources :notecards
   end
+
+  resources :comments, only: [:create, :update, :destroy]
 
   get 'notecards', to: 'notecards#all'
 end
