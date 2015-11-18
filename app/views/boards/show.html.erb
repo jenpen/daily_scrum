@@ -5,12 +5,30 @@
 <!-- Show Notecards For This Board -->
 <% @board.notecards.each do |notecard| %>
 <ul>
-  <li><%= link_to notecard.task, board_notecards_path(notecard) %></li>
-  <li><%= notecard.date %></li>
-  <li><%= notecard.status %></li>
-  <li><%= notecard.accomplished %></li>
-  <li><%= notecard.to_do %></li>
-  <li><%= notecard.roadblock %></li>
+  <li>
+    <p>Task:</p>
+    <p><%= link_to notecard.task, board_notecards_path(notecard) %></p>
+  </li>
+  <li>
+    <p>Date:
+    <p><%= notecard.date %></p>
+  </li>
+  <li>
+    <p>Task Status:</p>
+    <p><%= notecard.status %></p>
+  </li>
+  <li>
+    <p>What did you accomplish yesterday?</p>
+    <p><%= notecard.accomplished %></p>
+  </li>
+  <li>
+    <p>What are you doing today?</p>
+    <p><%= notecard.to_do %></p>
+  </li>
+  <li>
+    <p>What are the roadblocks (if any)?</p>
+    <p><%= notecard.roadblock %></p>
+  </li>
 </ul>
 <!-- Notecard Owner Can Edit Or Delete Card -->
   <% if current_user && notecard.user == current_user %>

@@ -2,7 +2,7 @@
 
 <% @notecards.each do |notecard| %>
   <ul>
-    <li><%= link_to notecard.task, board_notecards_path(notecard) %></li>
+    <li><%= link_to notecard.task, board_notecard_path(@board, notecard) %></li>
     <li><%= notecard.date %></li>
     <li><%= notecard.status %></li>
     <li><%= notecard.accomplished %></li>

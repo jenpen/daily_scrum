@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'boards#index'
 
   resources :boards do
-    resources :notecards do
+    resources :notecards, except: [:index] do
       resources :comments, only: [:create, :update, :destroy]
     end
   end
