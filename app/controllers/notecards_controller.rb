@@ -26,14 +26,16 @@ class NotecardsController < ApplicationController
   def edit
     Rails.logger.debug("Id: #{params[:id]}")
     @notecard = Notecard.find(params[:id])
-    # @board = @notecard.board
   end
 
   def update
     @notecard = Notecard.find(params[:id])
-    # @board = @notecard.board
-    @notecard.update(notecard_params)
-    redirect_to board_notecards_path
+    if @notecard.update(notecard_params)
+      flash[:notice] = "#{@notecard.title} was successfully updated!"
+      redirect_to board_notecards_path
+    else
+      render :edit
+    end
   end
 
   def destroy

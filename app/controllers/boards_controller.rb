@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    redirect_to 'notecards/index'
+    redirect_to ':notecards/index'
   end
 
   def new
