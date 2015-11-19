@@ -9,7 +9,19 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+// Navigation Customization
+.navbar {
+  background-color: #666;
+  color : #fff;
+}
+.navbar-brand {
+  font-size: 3em;
+}
+.navbar-credentials {
+  font-size: 1.25em;
+}

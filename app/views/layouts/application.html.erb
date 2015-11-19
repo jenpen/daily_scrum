@@ -2,25 +2,25 @@
 <html>
 <head>
   <title>Daily Scrum Board</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class='navbar navbar-default' role='navigation'>
-    <div class='container'>
-      <div class='navbar-header'>
-        <div class='navbar-brand'><%= link_to 'Daily Scrum', root_path %>
+  <nav class="navbar navbar-default" role="navigation">
+    <div id="nav-container" class="container">
+      <div class="navbar-header">
+        <div class="navbar-brand pull-left"><%= link_to "Daily Scrum", root_path %>
         </div>
-        <div class="navbar-credentials>">
+        <div class="navbar-credentials pull-right">
           <% if current_user %>
             <%= "Welcome, #{current_user.username}" %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           <% else %>
-            <%= link_to 'Sign Up', new_user_registration_path %>
-            <%= link_to 'Sign In', new_user_session_path %>
+            <%= link_to "Sign Up", new_user_registration_path %>
+            <%= link_to "Sign In", new_user_session_path %>
           <% end %>
         </div>
       </div>
@@ -30,13 +30,13 @@
 <!-- Main Content -->
   <div id="main-container" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
         <% flash.each do |name, msg| -%>
           <%= content_tag :div, msg, class: "alert alert-#{name}" %>
         <% end -%>
       </div>
     </div>
-    <div id='content' class="col-xs-12">
+    <div id="content" class="col-xs-12">
       <%= yield %>
     </div>
   </div>
