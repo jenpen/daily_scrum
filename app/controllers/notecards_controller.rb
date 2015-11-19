@@ -19,8 +19,14 @@ class NotecardsController < ApplicationController
 
   def create
     Rails.logger.debug("Id: #{params[:id]}")
-    @notecard = @board.notecards.create!(notecard_params.merge(user:current_user))
-    redirect_to board_notecards_path
+    if @notecard = @board.notecards.create!(notecard_params.merge(user:current_user))
+      flash[:notice] = "#{@notecard.task} was successfully created!"
+      redirect_to board_notecards_path(@board)
+    else
+      flash[:alert] = "#{@notecard.task} was not created."
+      render :new
+    end
+
   end
 
   def edit
@@ -31,17 +37,23 @@ class NotecardsController < ApplicationController
   def update
     @notecard = Notecard.find(params[:id])
     if @notecard.update(notecard_params)
-      flash[:notice] = "#{@notecard.title} was successfully updated!"
+      flash[:notice] = "#{@notecard.task} was successfully updated!"
       redirect_to board_notecards_path
     else
+      flash[:alert] = "#{@notecard.task} was not updated."
       render :edit
     end
   end
 
   def destroy
     @notecard = current_user.notecards.find(params[:id])
-    @notecard.destroy
-    redirect_to board_notecards_path
+    if @notecard.destroy
+      flash[:notice] = "#{@notecard.task} was removed."
+      redirect_to board_notecards_path
+    else
+      flash[:alert] = "#{@notecard.task} was not removed."
+      redirect_to board_notecards_path
+    end
   end
 
 private

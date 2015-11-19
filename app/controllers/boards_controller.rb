@@ -5,17 +5,13 @@ class BoardsController < ApplicationController
     @boards = Board.all
   end
 
-  def show
-    redirect_to ':notecards/index'
-  end
-
   def new
     @board = Board.new
   end
 
   def create
     @board = Board.create!(board_params)
-    redirect_to boards_path
+    redirect_to board_notecards_path(@board)
   end
 
   def edit
@@ -23,7 +19,7 @@ class BoardsController < ApplicationController
 
   def update
     @board.update!(board_params)
-    redirect_to boards_path
+    redirect_to board_notecards_path(@board)
   end
 
   def destroy
