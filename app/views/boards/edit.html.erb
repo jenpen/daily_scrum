@@ -1,6 +1,9 @@
-<h2>Edit Board</h2>
+<div class="page_title">
+  <h1>Edit Board</h1>
+</div>
 
 <%= render "form" %>
 
-<%= link_to "Back To Board", board_notecards_path(@board) %> |
-<%= link_to "Delete This Board", @board, method: :delete, data: { confirm: "Are you sure?" } %>
+<button><%= link_to "Back To Board", board_notecards_path(@board) %></button>
+
+<button><%= link_to "Delete This Board", @board, method: :delete, data: { confirm: "Are you sure?"} %></button>
