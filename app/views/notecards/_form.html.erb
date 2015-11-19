@@ -1,22 +1,45 @@
-<%= form_for [@board, @notecard] do |f| %>
-  <!-- Task -->
-    <%= f.label :task %>
-    <%= f.text_field :task %>
-  <!-- Notecard dates -->
-    <%= f.label :date, "Date (Enter as YYYY-MM-DD)" %>
-    <%= f.text_field :date %>
-  <!-- Task Status -->
-    <%= f.label :status %>
-    <%= f.text_field :status %>
-  <!-- What did you accomplish yesterday? -->
-    <%= f.label :accomplished, "What did you accomplish yesterday?" %>
-    <%= f.text_field :accomplished %>
-  <!-- What are you doing today? -->
-    <%= f.label :to_do, "What are you doing today?" %>
-    <%= f.text_field :to_do %>
-  <!-- What are the roadblocks? -->
-    <%= f.label :roadblock, "What are the roadblocks?" %>
-    <%= f.text_field :roadblock %>
-  <!-- Submit -->
-    <%= f.submit %>
-<% end %>
+<div class="form">
+  <div class="well well-lg">
+    <%= form_for [@board, @notecard], :html => {:class => "form-group center"} do |f| %>
+
+<!-- Task -->
+    <div class="form-group">
+      <%= f.label :task, "Task:", class: "col-md-12 control-label" %>
+      <%= f.text_field :task, class: "form-control" %>
+    </div>
+
+<!-- Notecard dates -->
+    <div class="form-group">
+      <%= f.label :date, "Date (Enter as YYYY-MM-DD):", class: "col-md-12 control-label" %>
+      <%= f.text_field :date, class: "form-control"  %>
+    </div>
+
+<!-- Task Status -->
+    <div class="form-group">
+      <%= f.label :status, "Task Status", class: "col-md-12 control-label" %>
+      <%= f.select(:status, options_for_select(["Not Started", "In Progress", "Complete"]), {class: "form-control"}) %>
+    </div>
+
+<!-- What did you accomplish yesterday? -->
+    <div class="form-group">
+      <%= f.label :accomplished, "What did you accomplish yesterday?", class: "col-md-12 control-label" %>
+      <%= f.text_area :accomplished, class: "form-control" %>
+    </div>
+
+<!-- What are you doing today? -->
+    <div class="form-group">
+      <%= f.label :to_do, "What are you doing today?", class: "col-md-12 control-label" %>
+      <%= f.text_area :to_do, class: "form-control" %>
+    </div>
+
+<!-- What are the roadblocks? -->
+    <div class="form-group">
+      <%= f.label :roadblock, "What are the roadblocks?", class: "col-md-12 control-label" %>
+      <%= f.text_area :roadblock, class: "form-control" %>
+    </div>
+
+<!-- Submit -->
+    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+    <% end %>
+  </div>
+</div>
