@@ -9,26 +9,30 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-default" role="navigation">
-    <div id="nav-container" class="container">
-      <div class="navbar-header">
-        <div class="navbar-brand pull-left"><%= link_to "Daily Scrum", root_path %>
-        </div>
-        <div class="navbar-credentials pull-right">
-          <% if current_user %>
-            <%= "Welcome, #{current_user.username}" %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to "Sign Up", new_user_registration_path %>
-            <%= link_to "Sign In", new_user_session_path %>
-          <% end %>
-        </div>
-      </div>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "Daily Scrum", root_path, class: "navbar-brand" %>
     </div>
-  </nav>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "View All Boards", root_path %></li>
+        <li><%= link_to "View All Notecards", notecards_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path %><</li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <!-- Main Content -->
-  <div id="main-container" class="container-fluid">
+  <div id="main-container" class="container">
     <div class="row">
       <div class="col-md-12">
         <% flash.each do |name, msg| -%>
@@ -36,7 +40,7 @@
         <% end -%>
       </div>
     </div>
-    <div id="content" class="col-xs-12">
+    <div id="content" class="col-md-12">
       <%= yield %>
     </div>
   </div>

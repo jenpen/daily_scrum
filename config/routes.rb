@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root to: 'boards#index'
 
 # Custom Routes
-  get 'boards/:board_id', to: 'notecards#index'
+
+  # get 'boards/:board_id', to: 'notecards#index', except: [:new]
   get 'notecards', to: 'notecards#all'
 
 # Nexted Resources
