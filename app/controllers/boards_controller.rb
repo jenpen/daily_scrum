@@ -10,21 +10,37 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create!(board_params)
-    redirect_to board_notecards_path(@board)
+    if @board = Board.create!(board_params)
+      flash[:notice] = "#{@board.title} was successfully created!"
+      redirect_to board_notecards_path(@board)
+    else
+      flash[:alert] = "#{@board.title} was not created."
+      render :new
+    end
   end
+
 
   def edit
   end
 
   def update
-    @board.update!(board_params)
-    redirect_to board_notecards_path(@board)
+    if @board.update!(board_params)
+      flash[:notice] = "#{@board.title} was successfully updated!"
+      redirect_to board_notecards_path(@board)
+    else
+      flash[:alert] = "#{@board.title} was not updated."
+      render :edit
+    end
   end
 
   def destroy
-    @board.destroy
-    redirect_to boards_path
+    if @board.destroy
+      flash[:notice] = "#{@board.title} was removed."
+      redirect_to boards_path
+    else
+      flash[:alert] = "#{@board.title} was not removed."
+      redirect_to board_notecards_path(@board)
+    end
   end
 
 private

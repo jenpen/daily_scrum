@@ -4,9 +4,7 @@
 
 <%= render "form" %>
 
-
 <div class="col-md-12">
 <%= link_to "Back To Board", board_notecards_path(@board), class: "btn btn-info btn-lg" %>
-
 <%= link_to "Delete This Board", @board, class: "btn btn-warning btn-lg",  method: :delete, data: { confirm: "Are you sure?"} %>
 </div>

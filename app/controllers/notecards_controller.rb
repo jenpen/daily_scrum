@@ -25,11 +25,9 @@ class NotecardsController < ApplicationController
       flash[:alert] = "#{@notecard.task} was not created."
       render :new
     end
-
   end
 
   def edit
-    Rails.logger.debug("Id: #{params[:id]}")
     @notecard = Notecard.find(params[:id])
   end
 
