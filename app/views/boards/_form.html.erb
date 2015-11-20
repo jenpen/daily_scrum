@@ -10,16 +10,16 @@
       <%= f.text_field :title, class: "form-control" %>
     </div>
 
-      <!-- Board Status -->
+    <!-- Board Status -->
     <div class="form-group">
       <%= f.label :status, "Board Status:", class: "col-md-12 control-label" %>
       <%= f.select(:status, options_for_select(["Not Started", "In Progress", "Complete"]), {class: "form-control"})  %>
     </div>
 
-      <!-- Submit -->
-      <div class="form-submit">
-        <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
-      </div>
+    <!-- Submit -->
+    <div class="form-submit">
+      <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+    </div>
     <% end %>
   </div>
 </div>
