@@ -14,10 +14,10 @@
  @import "bootstrap";
 
 
-// Navigation Customization
+/* Navigation Customization */
 .navbar {
   background-color: #444;
-  border-radius: 0;
+  border-radius: 0px;
   padding-left: 10px;
   padding-right: 20px;
 }
@@ -26,14 +26,17 @@
   font-size: 3em;
   color: #fff;
 }
-.navbar-brand > a, a:hover, a:active, {
+.navbar-brand > a,
+.navbar-brand > a:hover,
+.navbar-brand > a:active {
   text-decoration: none;
 }
+
 .navbar-credentials {
   font-size: 2em;
 }
 
-// Global
+/* Global */
 .page_title {
   text-align: center;
   vertical-align: middle;
@@ -62,7 +65,7 @@ footer {
   margin: 50px;
 }
 
-// Boards
+/* Boards */
 .board_title {
   font-size: 1.5em;
 }
@@ -75,7 +78,7 @@ footer {
   padding: 10px;
 }
 
-// Notecard
+/* Notecard */
 .notecard > .well {
   text-align: center;
   margin: 10px;
@@ -88,7 +91,9 @@ footer {
   padding: 5px;
 }
 
-.notecard_title > a, a:hover, a:active, {
+.notecard_title >a,
+.notecard_title >a:hover,
+.notecard_title >a:active {
   color: #fff;
 }
 
@@ -112,7 +117,7 @@ footer {
   padding: 20px;
 }
 
-// Form
+/* Form */
 .form {
   position: relative;
   margin: 0 auto;
