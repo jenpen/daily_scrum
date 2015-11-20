@@ -4,9 +4,11 @@
 </div>
 
 <div class="new_card_button">
+  <% if current_user %>
   <%= link_to new_board_notecard_path(@board, @notecard), class: "btn btn-success" do  %>
   <i class="glyphicon glyphicon-plus"> Add Notecard</i>
   <% end %>
+<% end %>
 </div>
 
 <!-- Show Notecards For This Board -->
