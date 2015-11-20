@@ -1,3 +1,9 @@
-<h2>Create New Notecard</h2>
+<div class="page_title">
+  <h1>New Notecard</h1>
+</div>
 
 <%= render "form" %>
+
+<div class="col-md-12">
+<%= link_to "Back To Notecards", board_notecards_path(@board), class: "btn btn-info btn-lg" %>
+</div>

@@ -4,41 +4,38 @@
 
 <!-- Show all notecards -->
 <% @notecards.each do |notecard| %>
-<div class="notecard col-md-4">
+<div class="notecard col-md-6">
   <div class="well well-lg">
     <ul>
       <!-- Notecard Title -->
       <li class="notecard_title"><%= link_to notecard.task, board_notecard_path(notecard.board_id, notecard) %></li>
-      <!-- Notecard Date -->
-      <li><p class="notecard_col_title">Date: </p>
-        <%= notecard.date, class: "notecard_col_entry" %></li>
-
-        <!-- Notecard Date -->
-        <li><p class="notecard_col_title">Task Status: </p><%= notecard.status %></li>
-
-        <!-- Notecard Date -->
-        <li>
-          <p>What did you accomplish yesterday?</p>
-          <p><%= notecard.accomplished %></p>
-        </li>
-
-        <!-- Notecard Date -->
-        <li>
-          <p>What are you doing today?</p>
-          <p><%= notecard.to_do %></p>
-        </li>
-
-        <!-- Notecard Date -->
-        <li>
-          <p>What are the roadblocks (if any)?</p>
-          <p><%= notecard.roadblock %></p>
-        </li>
-      </ul>
 
       <!-- Notecard Date -->
-      <% if current_user && notecard.user == current_user %>
-      <button class="btn btn-info"><%= link_to "Edit Notecard", edit_board_notecard_path(notecard.board_id, notecard) %></button>
-      <% end %>
-    </div>
+      <li><p class="notecard_column">Date: <%= notecard.date %></p></li>
+
+      <!-- Notecard Status -->
+      <li><p class="notecard_column">Task Status: <%= notecard.status  %></p></li>
+
+      <!-- Notecard Accomplish? -->
+      <li>
+        <p class="notecard_column"><i>What did you accomplish yesterday?</i></br><%= notecard.accomplished  %></p>
+      </li>
+
+      <!-- Notecard To Do? -->
+      <li>
+        <p class="notecard_column"><i>What are you doing today?</i></br><%= notecard.to_do  %></p>
+      </li>
+
+      <!-- Notecard Roadblocks? -->
+      <li>
+        <p class="notecard_column"><i>What are the roadblocks (if any)?</i></br><%= notecard.roadblock  %></p>
+      </li>
+    </ul>
+
+    <!-- Notecard Edit -->
+    <% if current_user && notecard.user == current_user %>
+      <%= link_to "Edit Notecard", edit_board_notecard_path(notecard.board_id, notecard), class: "btn btn-info btn-lg"  %>
+    <% end %>
   </div>
-  <% end %>
+</div>
+<% end %>

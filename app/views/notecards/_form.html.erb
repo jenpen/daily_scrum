@@ -1,3 +1,6 @@
+<div class="col-md-2"></div>
+
+<div class="form col-md-8">
 <div class="form">
   <div class="well well-lg">
     <%= form_for [@board, @notecard], :html => {:class => "form-group center"} do |f| %>
@@ -39,7 +42,11 @@
     </div>
 
 <!-- Submit -->
-    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
     <% end %>
   </div>
 </div>
+
+</div>
+
+<div class="col-md-2"></div>

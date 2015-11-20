@@ -1,6 +1,13 @@
-<h2>Edit Notecard</h2>
+<div class="page_title">
+  <h1>Edit Notecard</h1>
+</div>
 
+<div class="col-md-12">
 <%= render "form" %>
+</div>
 
-<%= link_to "Back To Notecard", board_notecard_path(@board, @notecard) %> |
-<%= link_to "Delete Notecard", [@board, @notecard], method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="actions col-md-12">
+<%= link_to "Back To Board", board_notecard_path(@board, @notecard), class: "btn btn-info btn-lg" %>
+
+<%= link_to "Delete Notecard", [@board, @notecard], class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?"} %>
+</div>
