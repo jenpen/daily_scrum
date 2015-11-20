@@ -1,22 +1,22 @@
 <!-- Current User : Available Actions -->
 <% if current_user %>
 <!-- View All Boards + Add New Board -->
-  <div class="page_title">
-    <h1>All Boards <%= link_to new_board_path, class: "btn btn-success" do  %>
-      <i class="glyphicon glyphicon-plus"></i>
+<div class="page_title">
+  <h1>All Boards <%= link_to new_board_path, class: "btn btn-success" do  %>
+    <i class="glyphicon glyphicon-plus"></i>
     <% end %></h1>
   </div>
   <!-- Not Current User : View Boards -->
-<% else %>
+  <% else %>
   <!-- View All Boards -->
   <div class="page_title"><h1>All Boards</h1></div>
-<% end %>
+  <% end %>
 
-<% @boards.each do |board| %>
-    <div class="well well-lg">
-      <ul>
-        <li class="board_title"><%= link_to board.title, board_notecards_path(board) %></li>
-        <li class="board_status"><%= board.status %></li>
-      </ul>
-    </div>
-<% end %>
+  <% @boards.each do |board| %>
+  <div class="well well-lg">
+    <ul>
+      <li class="board_title"><%= link_to board.title, board_notecards_path(board) %></li>
+      <li class="board_status"><%= board.status %></li>
+    </ul>
+  </div>
+  <% end %>

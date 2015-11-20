@@ -20,21 +20,21 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %><</li>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <% end %>
+        <li><%= link_to "Sign Up", new_user_registration_path %><</li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
-</nav>
-
-<!-- Main Content -->
+  </nav>
+  
+  <!-- Main Content -->
   <div id="main-container" class="container">
     <div class="row">
       <div class="col-md-12">
         <% flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+        <%= content_tag :div, msg, class: "alert alert-#{name}" %>
         <% end -%>
       </div>
     </div>

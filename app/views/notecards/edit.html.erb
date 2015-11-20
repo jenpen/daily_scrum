@@ -3,11 +3,10 @@
 </div>
 
 <div class="col-md-12">
-<%= render "form" %>
+  <%= render "form" %>
 </div>
 
 <div class="actions col-md-12">
-<%= link_to "Back To Board", board_notecard_path(@board, @notecard), class: "btn btn-info btn-lg" %>
-
-<%= link_to "Delete Notecard", [@board, @notecard], class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?"} %>
+  <%= link_to "Back To Board", board_notecard_path(@board, @notecard), class: "btn btn-info btn-lg" %>
+  <%= link_to "Delete Notecard", [@board, @notecard], class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?"} %>
 </div>

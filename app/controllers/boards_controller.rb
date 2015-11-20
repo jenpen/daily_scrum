@@ -43,7 +43,7 @@ class BoardsController < ApplicationController
     end
   end
 
-private
+  private
   def set_board
     @board = Board.find(params[:id])
   end

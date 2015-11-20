@@ -53,7 +53,7 @@ class NotecardsController < ApplicationController
     end
   end
 
-private
+  private
   def set_board
     @board = Board.find(params[:board_id])
   end

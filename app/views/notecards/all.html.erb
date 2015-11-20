@@ -34,7 +34,7 @@
 
     <!-- Notecard Edit -->
     <% if current_user && notecard.user == current_user %>
-      <%= link_to "Edit Notecard", edit_board_notecard_path(notecard.board_id, notecard), class: "btn btn-info btn-lg"  %>
+    <%= link_to "Edit Notecard", edit_board_notecard_path(notecard.board_id, notecard), class: "btn btn-info btn-lg"  %>
     <% end %>
   </div>
 </div>

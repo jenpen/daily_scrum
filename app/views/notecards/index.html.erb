@@ -5,10 +5,10 @@
 
 <div class="new_card_button">
   <% if current_user %>
-  <%= link_to new_board_notecard_path(@board, @notecard), class: "btn btn-success" do  %>
-  <i class="glyphicon glyphicon-plus"> Add Notecard</i>
+    <%= link_to new_board_notecard_path(@board, @notecard), class: "btn btn-success" do  %>
+      <i class="glyphicon glyphicon-plus"> Add Notecard</i>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 
 <!-- Show Notecards For This Board -->
@@ -43,8 +43,8 @@
 
     <!-- Notecard Owner Can Edit Or Delete Card -->
     <% if current_user && notecard.user == current_user %>
-      <%= link_to "Edit Notecard", edit_board_notecard_path(notecard.board_id, notecard), class: "btn btn-info btn-lg" %>
-      <%= link_to "Delete Notecard", [@board, notecard], class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to "Edit Notecard", edit_board_notecard_path(notecard.board_id, notecard), class: "btn btn-info btn-lg" %>
+    <%= link_to "Delete Notecard", [@board, notecard], class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
   </div>
 </div>
@@ -53,7 +53,7 @@
 <!-- Any Current User Can Edit or Delete the Board if Logged In -->
 <div class="board_actions col-md-12">
   <% if current_user %>
-    <%= link_to "Edit Board", edit_board_path(@board), class: "btn btn-info btn-lg" %>
-    <%= link_to "Delete Board", @board, class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to "Edit Board", edit_board_path(@board), class: "btn btn-info btn-lg" %>
+  <%= link_to "Delete Board", @board, class: "btn btn-warning btn-lg", method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 </div>
