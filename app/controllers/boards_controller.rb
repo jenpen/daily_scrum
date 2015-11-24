@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  # :+1:
   before_action :set_board, except: [:index, :new, :create]
 
   def index
