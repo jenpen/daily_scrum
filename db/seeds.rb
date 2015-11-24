@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: "Chicago" }, { name: "Copenhagen" }])
 #   Mayor.create(name: "Emanuel", city: cities.first)
 
-
+# seed data! hooray very creative user names and passwords
 User.destroy_all
 Notecard.destroy_all
 Comment.destroy_all

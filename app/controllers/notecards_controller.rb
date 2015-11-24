@@ -1,6 +1,6 @@
 class NotecardsController < ApplicationController
   before_action :set_board, except: [:all, :destroy]
-
+# :+1:
   def all
     @notecards = Notecard.all
   end

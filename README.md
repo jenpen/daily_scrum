@@ -20,7 +20,7 @@ To pull down to your computer, fork or clone this repo and open on your system. 
 
 ##Unsolved Problems
 * Note able to delete a board until all notecards for that board have been deleted. Would like to figure out how to do the "delete with no constraints" action available in SQL in Active Record.
-* Routes include commented out redirection for any boards/:board_id path to boards/:board_id/notecards. As currently written in the code, this doesn't work with boards/new. 
+* Routes include commented out redirection for any boards/:board_id path to boards/:board_id/notecards. As currently written in the code, this doesn't work with boards/new.
 
 
 ##Coming Features
@@ -35,3 +35,5 @@ To pull down to your computer, fork or clone this repo and open on your system. 
 Create an issue on this repo with any questions.
 
 ##Thank you!
+
+> this is a great readme jen, keep it up!

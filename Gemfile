@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'autoprefixer-rails'
+## cool, had no idea a gem like that existed
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  # remember to delete any non functional code when you move to production
   def new
   end
 
