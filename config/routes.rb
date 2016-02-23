@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :boards, except: [:show] do
     resources :notecards
   end
+  
   resources :notecards, except: [:index, :create, :new, :edit, :show, :update, :destroy] do
     resources :comments
   end

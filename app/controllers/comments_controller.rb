@@ -13,8 +13,8 @@ before_action :set_notecard, only: [:create, :destroy]
   end
 
 private
-  def set_comment
-    @comment = Comment.find(params[:id])
+  def set_notecard
+    @notecard = Notecard.find(params[:id])
   end
 
   def comment_params
